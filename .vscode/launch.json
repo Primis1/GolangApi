@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+      {
+        "name": "Launch Program",
+        "type": "go",
+        "request": "launch",
+        "program": "${workspaceFolder}/cmd/url-shorter/main.go",
+        "env": {
+          "CONFIG_PATH": "${workspaceFolder}/cmd/config/local.yml"
+        },
+        "args": []
+      }
+    ]
+  }
+  
