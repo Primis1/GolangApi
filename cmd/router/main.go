@@ -53,14 +53,20 @@ func home(w http.ResponseWriter, r *http.Request) {
 }
 
 func snippet(w http.ResponseWriter, r *http.Request) {
-    w.Write([]byte("Snippet"))
+    if r.Method != "POST" {
+        w.Header().Set("Allow", "POST")
+        w.WriteHeader(401)
+        w.Write([]byte("wrong method"))
+        return 
+    }
+    w.Write([]byte("Create snippet"))
 }
 
 func main() {
     mux := http.NewServeMux()
 
     mux.HandleFunc("/", home)
-    mux.HandleFunc("/snip", snippet)
+    mux.HandleFunc("/snippet/create", snippet)
 
     log.Print("Starting server on :4000")
 
