@@ -1,1 +1,5 @@
 /cmd/configs/local.yml
+
+*.idea
+
+.vscode*
